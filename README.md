@@ -27,7 +27,7 @@ O desafio constava na construção de uma api de cadastro em java utilizando o f
 ```bash
   Faça um clone do repositório na sua máquina.
   instale as dependências do projeto utilizando npm install.
-  Para utilizar a api é necessário ter no mínimo a versão do Java 17.
+  Para utilizar a api é necessário ter no mínimo a versão 17 do Java.
   para iniciar a aplicação certifique-se que seu banco está online.
   Navegue até o arquivo RestApiApplication.java localizado em:
   DevelCode\restapi\src\main\java\com\registration\restapi\RestapiApplication.java
