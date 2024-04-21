@@ -7,9 +7,33 @@ export const UsersContainer = styled.div`
     flex-direction: column;
     align-items: center;
     margin-top: 5px;
+    overflow-y: scroll;
 
     h1 {
         margin-bottom: 10px;
+    }
+
+    div:first-of-type {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        div {
+            width: 1200px;
+            display: flex;
+            justify-content: end;
+            margin-bottom: 20px;
+
+            button {
+                padding: 10px 5px;
+                border: 0;
+                color: white;
+                font-weight: bold;
+                background-color: #008000;
+                cursor: pointer;
+                border-radius: 6px;
+            }
+        }
     }
 `;
 

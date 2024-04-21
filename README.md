@@ -1,30 +1,35 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# DevelCode
 
-Currently, two official plugins are available:
+## Stack utilizada
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Front-end:** React, Styled-components, react-hook-form, react-router-dom
 
-## Expanding the ESLint configuration
+**Back-end:** Java, Springboot
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+**Banco de dados:** MySQL
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+## Informações
+
+O desafio constava na construção de uma api de cadastro em java utilizando o framework springboot e o Front-end em Reactjs.
+
+
+## Funcionalidades
+
+- Cadastro de usuário
+- Edição de usuário
+- Deleção de usuário
+
+
+## Instalação
+
+```bash
+  Faça um clone do repositório na sua máquina.
+  instale as dependências do projeto utilizando npm install.
+  Para utilizar a api é necessário ter no mínimo a versão do Java 17.
+  para iniciar a aplicação certifique-se que seu banco está online.
+  Navegue até o arquivo RestApiApplication.java localizado em:
+  DevelCode\restapi\src\main\java\com\registration\restapi\RestapiApplication.java
 ```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+    

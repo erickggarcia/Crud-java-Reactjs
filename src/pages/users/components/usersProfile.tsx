@@ -1,42 +1,41 @@
-import { useState, useRef } from 'react';
-import { ImageContainer, TableRow } from "./style";
-import { userDataReload } from '..';
+import { useState, useRef } from 'react'
+import { ImageContainer, TableRow } from "./style"
+import { userDataReload } from '..'
 import { Modal, Box, Typography, TextField, Button } from '@mui/material'
 import { useForm } from 'react-hook-form'
 import profile from '../../../assets/images/profile/profile-picture.png'
 
 interface EditModalProps {
-    open: boolean;
-    handleClose: () => void;
-    userData: { name: string; birthDate: string; photoUrl: string; }
-    handleEdit: (editData: any) => void;
-    formattingData: (data: string) => string;
+    open: boolean
+    handleClose: () => void
+    userData: { name: string; birthDate: string; photoUrl: string }
+    handleEdit: (editData: any) => void
+    formattingData: (data: string) => string
     id: number
 }
 
 export function UsersProfile({ fetchData, name, birthDate, photoUrl, id }: userDataReload) {
-    const [editOpen, setEditOpen] = useState(false);
-    const [deleteOpen, setDeleteOpen] = useState(false);
+    const [editOpen, setEditOpen] = useState(false)
+    const [deleteOpen, setDeleteOpen] = useState(false)
     
     function EditModal({id, open, handleClose, userData, handleEdit, formattingData}: EditModalProps) {
-        const { register, handleSubmit, watch } = useForm();
+        const { register, handleSubmit, watch } = useForm()
         watch()
         
         const formatData = (data: any) => {
-            const { birthDate, ...rest } = data;
-            const [year, month, day] = birthDate.split('-');
-            const formattedDate = `${day}/${month}/${year}`;
-            return { ...rest, birthDate: formattedDate };
-        };
+            const { birthDate, ...rest } = data
+            const [year, month, day] = birthDate.split('-')
+            const formattedDate = `${day}/${month}/${year}`
+            return { ...rest, birthDate: formattedDate }
+        }
         
     
         const onSubmit = (data: any) => {
-            const editData = formatData({ ...data, id });
-            handleEdit(editData);
-            handleClose();
-        };
+            const editData = formatData({ ...data, id })
+            handleEdit(editData)
+            handleClose()
+        }
 
-        {console.log('essa é a imagem' , photoUrl)}
         return (
             <Modal
                 open={open}
@@ -82,25 +81,25 @@ export function UsersProfile({ fetchData, name, birthDate, photoUrl, id }: userD
                     <Button onClick={handleSubmit(onSubmit)} variant="contained" sx={{ mt: 2 }}>Salvar</Button>
                 </Box>
             </Modal>
-        );
+        )
     }
     
 
     const handleEditOpen = () => {
-        setEditOpen(true);
-    };
+        setEditOpen(true)
+    }
 
     const handleEditClose = () => {
-        setEditOpen(false);
-    };
+        setEditOpen(false)
+    }
 
     const handleDeleteOpen = () => {
-        setDeleteOpen(true);
-    };
+        setDeleteOpen(true)
+    }
 
     const handleDeleteClose = () => {
-        setDeleteOpen(false);
-    };
+        setDeleteOpen(false)
+    }
 
     function DeleteModal({ id, open, handleClose, handleDelete }: any) {
         return (
@@ -130,7 +129,7 @@ export function UsersProfile({ fetchData, name, birthDate, photoUrl, id }: userD
                     </div>
                 </Box>
             </Modal>
-        );
+        )
     }
 
      async function handleEdit (editData: any) {
@@ -141,34 +140,34 @@ export function UsersProfile({ fetchData, name, birthDate, photoUrl, id }: userD
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(editData)
-            });
+            })
             if (!response.ok) {
-                throw new Error('Failed to update user');
+                throw new Error('Failed to update user')
             } else {
-                console.log("usuário editado com sucesso");
-                fetchData();
-                handleEditClose();
+                console.log("usuário editado com sucesso")
+                fetchData()
+                handleEditClose()
             }
         } catch (error) {
-            console.error('Error updating user:', error);
+            console.error('Error updating user:', error)
         }
-    };
+    }
     
 
     async function handleDelete(id: number): Promise<void> {
         try {
             const response = await fetch(`http://localhost:5100/user/${id}`, {
                 method: 'DELETE'
-            });
+            })
             if (!response.ok) {
-                throw new Error('Failed to delete user');
+                throw new Error('Failed to delete user')
             } else {
-                console.log("usuário deletado com sucesso");
-                fetchData();
-                handleDeleteClose();
+                console.log("usuário deletado com sucesso")
+                fetchData()
+                handleDeleteClose()
             }
         } catch (error) {
-            console.error('Error deleting user:', error);
+            console.error('Error deleting user:', error)
         }
     }
 
@@ -178,18 +177,18 @@ export function UsersProfile({ fetchData, name, birthDate, photoUrl, id }: userD
     }
 
     function handleClick(event: any) {
-        const target = event.currentTarget;
-        const id = target.getAttribute('data-id');
+        const target = event.currentTarget
+        const id = target.getAttribute('data-id')
 
         if (target.textContent === "edit" && id) {
-            handleEditOpen();
+            handleEditOpen()
         } else if (target.textContent === "delete" && id) {
-            handleDeleteOpen();
+            handleDeleteOpen()
         }
     }
 
-    const editRef = useRef(null);
-    const deleteRef = useRef(null);
+    const editRef = useRef(null)
+    const deleteRef = useRef(null)
 
     return (
         <>
