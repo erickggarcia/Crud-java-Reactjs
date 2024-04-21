@@ -20,3 +20,8 @@ export const TableRow = styled.tr`
         background-color: #ddd;
     }
 `;
+
+export const ImageContainer = styled.div`
+    display: flex;
+    align-items: center;
+`

@@ -20,7 +20,7 @@ export const TableContainer = styled.table`
 `;
 
 export const TableHeader = styled.tr`
-    background-color: #4CAF50;
+    background-color: #1b75bb;
     color: white;
     td {
         padding: 8px;

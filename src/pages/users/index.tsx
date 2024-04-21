@@ -2,23 +2,27 @@ import { useEffect, useState } from "react";
 import { UsersProfile } from "./components/usersProfile";
 import { UsersContainer, TableContainer, TableHeader } from "./style";
 
-export interface UserData {
+interface UserData {
     id: number
     name: string
     birthDate: string
     photoUrl: string
 }
 
+export interface userDataReload extends UserData {
+    fetchData: () => void
+}
+
 export function Users() {
     const [data, setData] = useState<UserData[]>([]);
+    
+    const fetchData = async () => {
+        const response = await fetch("http://localhost:5100/user");
+        const jsonData = await response.json();
+        setData(jsonData as UserData[]);
+    };
 
     useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch("http://localhost:5100/user");
-            const jsonData = await response.json();
-            setData(jsonData as UserData[]);
-            localStorage.setItem('usuarios', JSON.stringify(jsonData));
-        };
         fetchData()
     }, []);
     
@@ -42,7 +46,7 @@ export function Users() {
                 </thead>
                 <tbody>
                     {data.map((item) =>
-                        <UsersProfile key={item.id} id={item.id} name={item.name} birthDate={item.birthDate} photoUrl={item.photoUrl}/>
+                        <UsersProfile key={item.id} fetchData={fetchData} id={item.id} name={item.name} birthDate={item.birthDate} photoUrl={item.photoUrl}/>
                     )}
                 </tbody>
             </TableContainer>
