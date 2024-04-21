@@ -8,7 +8,7 @@
 
 #### Tecnologias Utilizadas
 
-![React](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/320px-React-icon.svg.png)
+![React](https://cdn3.iconfinder.com/data/icons/remixicon-logos/24/reactjs-fill-128.png)
 ![Styled-components](https://styled-components.com/logo.png)
 ![React-hook-form](https://react-hook-form.com/gh-pages/logo.png)
 ![React-router-dom](https://reactrouter.com/img/logo.svg)
