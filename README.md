@@ -8,13 +8,13 @@
 
 #### Tecnologias Utilizadas
 
-- ![React](https://cdn3.iconfinder.com/data/icons/remixicon-logos/24/reactjs-fill-128.png)
+- React
 - React-hook-form
 - React-router-dom
-- ![Styled-components](https://styled-components.com/logo.png)
-- ![Java](https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/80px-Java_programming_language_logo.svg.png)
-- ![Spring Boot](https://spring.io/images/projects/spring-boot-7f2e24fb962501672cc91ccd285ed2ba.svg)
-- ![MySQL](https://upload.wikimedia.org/wikipedia/en/thumb/6/62/MySQL.svg/80px-MySQL.svg.png)
+- Styled-components
+- Java
+- Spring Boot
+- MySQL
 
 #### Informações
 
